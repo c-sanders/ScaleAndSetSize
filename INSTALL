@@ -1,0 +1,26 @@
+################################################################################
+Filename    : INSTALL
+################################################################################
+
+This is the INSTALL file which is associated with the GIMP scaleAndSetSize
+Plugin.
+
+This Plugin is implemented as a single Python source code file called ;
+
+	scaleAndSetSize.py
+
+To install this Plugin, simply copy it to one of the directories which GIMP
+searches for Plugins. Refer to ;
+
+	https://en.wikibooks.org/wiki/GIMP/Installing_Plugins
+
+for more information about Gimp Plugins and where to install them.
+
+As an example, if you are running Gimp under Linux, and you want to install the
+Plugin in your home directory, then you could install it in a directory such as
+the following ;
+
+	/home/username/.gimp-2.6/plug-ins/
+
+Note however, that installing it within your home directory means that you will
+be the only user who is able to use it.
