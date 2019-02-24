@@ -1,0 +1,1 @@
+/home/craig/.gimp-2.8/plug-ins/ScaleAndSetSizeObject.py
