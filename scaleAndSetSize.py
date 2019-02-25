@@ -8,19 +8,19 @@
 #      --verbose \
 #      --console-messages \
 #      --batch-interpreter="plug-in-script-fu-eval" \
-#      --batch '(python-fu-batch-scale-and-set-size RUN-NONINTERACTIVE 1920 1080 "/home/craig/local/build/Eulers_formula/frames/png/Eulers_formula_000010.png")' \
+#      --batch '(python-fu-batch-scale-and-set-size-noninterctive RUN-NONINTERACTIVE 1920 1080 3 "/home/foo/fileList.txt")' \
 #      --batch "(gimp-quit 1)"
 #
-# Locations in which Gimp plug-ins reside;
+# Exmples of locations within which Gimp Plugins can reside;
 #
-#   - /home/craig/.gimp-2.6/plug-ins
+#   - /home/foo/.gimp-2.x/plug-ins
 #   - /usr/lib/gimp/2.0/plug-ins
 
 
 from os     import path
 from gimpfu import register, main, pdb, gimp, PF_IMAGE, PF_DRAWABLE, PF_INT, PF_STRING, PF_FILE, INTERPOLATION_NONE, INTERPOLATION_LINEAR, INTERPOLATION_CUBIC, INTERPOLATION_LANCZOS, PF_RADIO
 
-from ScaleAndSetSizeObject import ScaleAndSetSizeObject
+from /home/craig/local/download/GitHub_projects/fartball/ScaleAndSetSize/ScaleAndSetSizeObject.py import ScaleAndSetSizeObject
 
 
 def \
