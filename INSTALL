@@ -7,12 +7,12 @@ Plugin.
 
 This Plugin is implemented as a single Python source code file called ;
 
-	scaleAndSetSize.py
+  scaleAndSetSize.py
 
 To install this Plugin, simply copy it to one of the directories which GIMP
 searches for Plugins. Refer to ;
 
-	https://en.wikibooks.org/wiki/GIMP/Installing_Plugins
+  https://en.wikibooks.org/wiki/GIMP/Installing_Plugins
 
 for more information about Gimp Plugins and where to install them.
 
@@ -20,11 +20,11 @@ As an example, if you are running Gimp under Linux, and you want to install the
 Plugin in your home directory, then you could install it in a directory such as
 the following ;
 
-	/home/username/.gimp-2.6/plug-ins/
+  /home/username/.gimp-2.6/plug-ins/
 
 After the Plugin has been installed into the necessary directory, please make
 sure that it has the appropriate execute permission bits set. For example, you
-could set it to something like;
+could set its permission bits to something like;
 
   -r-xr--r--
 
