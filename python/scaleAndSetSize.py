@@ -11,6 +11,9 @@
 #      --batch '(python-fu-batch-scale-and-set-size-noninterctive RUN-NONINTERACTIVE 1920 1080 3 "/home/foo/fileList.txt")' \
 #      --batch "(gimp-quit 1)"
 #
+# /home/foo/fileList.txt should be a file that contains a list of those files (one per line)
+# which should be operated on by the Plugin.
+#
 # Exmples of locations within which Gimp Plugins can reside;
 #
 #   - /home/foo/.gimp-2.x/plug-ins
@@ -20,7 +23,7 @@
 from os     import path
 from gimpfu import register, main, pdb, gimp, PF_IMAGE, PF_DRAWABLE, PF_INT, PF_STRING, PF_FILE, INTERPOLATION_NONE, INTERPOLATION_LINEAR, INTERPOLATION_CUBIC, INTERPOLATION_LANCZOS, PF_RADIO
 
-from /home/craig/local/download/GitHub_projects/fartball/ScaleAndSetSize/ScaleAndSetSizeObject.py import ScaleAndSetSizeObject
+from ScaleAndSetSizeObject import ScaleAndSetSizeObject
 
 
 def \
@@ -70,7 +73,7 @@ scale_and_set_size_noninteractive(
   horizontalResolution,
   verticalResolution,
   interpolationMode,    # 0,1,2,3 : 3 = INTERPOLATION_LANCZOS
-  listFile
+  listFiles
 ) :
 
 	nameFunction = "scale_and_set_size_noninteractive"
@@ -98,13 +101,17 @@ scale_and_set_size_noninteractive(
 
 	IFS   = ":"
 
-	fileHandle = open(listFile, "r")
+	# fileHandle = open(listFile, "r")
 
-	listFiles = fileHandle.read().splitlines()
+	# listFiles = fileHandle.read().splitlines()
 
-	fileHandle.close()
+	# fileHandle.close()
 
 	# listFiles = fileContents.split(IFS)
+
+	listFiles_split = listFiles.split(IFS)
+
+	listFiles = listFiles_split
 
 	print("%s : Number of elements in list = %d" % (nameFunction, len(listFiles)))
 	print("%s : File list = %s" % (nameFunction, listFiles))
@@ -185,10 +192,10 @@ register(
 	# "RGB*, GRAY*",                                              # Image mode
 	"",                                                           # Create a new image, don't work on an existing one.
 	[
-		(PF_INT,    "horizontalResolution", "Horizontal resolution",       1920),
-		(PF_INT,    "verticalResolution",   "Vertical resolution",         1080),
-		(PF_INT,    "interpolationMode",    "Interpolation mode",          3),
-		(PF_STRING, "listFiles",            "List of files to operate on", "")
+		(PF_INT,    "horizontalResolution", "Horizontal resolution (in pixels)",       1920),
+		(PF_INT,    "verticalResolution",   "Vertical resolution (in pixels)",         1080),
+		(PF_INT,    "interpolationMode",    "Interpolation mode (0,1,2, or 3)",         3),
+		(PF_STRING, "listFiles",            "List of files to operate on (the files in the list should be separated by ':' characters)", "")
 	],
 	[],
 	scale_and_set_size_noninteractive,
