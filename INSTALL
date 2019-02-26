@@ -55,7 +55,7 @@ This can be accomplished by running the following command on the file;
   chmod a-x ScaleAndSetSizeObject.py
 
 The reason for not setting any of the execute permission bits on this file, is
-because if they are, then GIMP would try to load the file as a GIMP Plugin.
+because if they were, then GIMP would try to load the file as a GIMP Plugin.
 
 Also, be aware that installing a Plugin into your home directory means that you
 will be the only user who is able to use it.
