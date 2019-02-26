@@ -29,8 +29,8 @@ directory such as the following ;
 
 After the files have been installed into the necessary directory, please make
 sure that they have the appropriate permission bits set. For example,
-scaleAndSetSize.py needs to have the appropriate execute permission bits set.
-For example, something like the following might be sufficient;
+scaleAndSetSize.py needs to have the appropriate execute permission bits set,
+and something like the following might be sufficient;
 
   -r-xr--r--
 
