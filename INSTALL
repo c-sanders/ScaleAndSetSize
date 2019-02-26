@@ -5,28 +5,43 @@ Filename    : INSTALL
 This is the INSTALL file which is associated with the GIMP scaleAndSetSize
 Plugin.
 
-This Plugin is implemented as a single Python source code file called ;
+This Plugin is implemented as two Python source code files which are called ;
 
   scaleAndSetSize.py
+  ScaleAndSetSizeObject.py
 
-To install this Plugin, simply copy it to one of the directories which GIMP
-searches for Plugins. Refer to ;
+The first file implements the Plugin and registers it with GIMP, while the
+second file implements a helper class. It is this helper class which does most
+of the work for the Plugin. 
+
+To install this Plugin, simply copy both of these files to one of the
+directories which GIMP searches for Plugins. Refer to ;
 
   https://en.wikibooks.org/wiki/GIMP/Installing_Plugins
 
 for more information about Gimp Plugins and where to install them.
 
 As an example, if you are running Gimp under Linux, and you want to install the
-Plugin in your home directory, then you could install it in a directory such as
-the following ;
+Plugin in your home directory, then you could install these files in a directory
+such as the following ;
 
   /home/username/.gimp-2.6/plug-ins/
 
-After the Plugin has been installed into the necessary directory, please make
-sure that it has the appropriate execute permission bits set. For example, you
-could set its permission bits to something like;
+After the files have been installed into the necessary directory, please make
+sure that they have the appropriate permission bits set. For example,
+scaleAndSetSize.py needs to have the appropriate execute permission bits set.
+For example, something like the following would be sufficient;
 
   -r-xr--r--
+
+while ScaleAndSetSizeObject.py shouldn't have any of its execute permission bits
+set. For example, something like the following would be sufficient;
+
+  -r--r--r--
+
+The reason for not setting any of the execute permission bits on the
+ScaleAndSetSizeObject.py file, is because if they are, then GIMP will try to
+load the file as a GIMP Plugin.
 
 Also, be aware that installing a Plugin into your home directory means that you
 will be the only user who is able to use it.
