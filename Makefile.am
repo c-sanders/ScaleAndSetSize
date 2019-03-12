@@ -27,7 +27,7 @@ all:
 	@echo ""
 	@echo "  > make install                                                                "
 	@echo ""
-	@echo "Good luck and happy installing :)"
+	@echo "Good luck and happy installing ;-)"
 	@echo ""
 
 
