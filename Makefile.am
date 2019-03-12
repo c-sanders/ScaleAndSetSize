@@ -1,20 +1,26 @@
-# The following Environment variables are used by this Makefile but should be
-# set externally by the Autoconf configure script ;
-#
-#   - INSTALL                = <path_to_install_utility>
-
-
-ACLOCAL_AMFLAGS = -I m4
+SUBDIRS = python
 
 
 all:
 
 	@echo ""
-	@echo "There isn't anything to make here!"
+	@echo "This make target doesn't need to do anything!                                   "
 	@echo ""
-	@echo "This package doesn't need to compile or build anything. All it really needs to  "
-	@echo "do, is to install a few files into their correct location. Therefore, the only  "
-	@echo "make command you need to run is;                                                "
+	@echo "The reason it doesn't need to do anything, is because the GIMP Plugin which is  "
+	@echo "installed by this package, is implemented in Python. As a consequence, the      "
+	@echo "Plugin doesn't need to be compiled, built, or processed in any other way. It    "
+	@echo "just needs to be installed into the appropriate location; that is, the directory"
+	@echo "whose name was passed as an argument to the --prefix configure script option.   "
+	@echo ""
+	@echo "For example, invoking this package's configure script as shown below;           "
+	@echo ""
+	@echo "  > configure --prefix=/home/foo/.gimp-2.8/plug-ins                             "
+	@echo ""
+	@echo "will cause the GIMP Plugin to be installed into the directory;                  "
+	@echo ""
+	@echo "  /home/foo/.gimp-2.8/plug-ins                                                  "
+	@echo ""
+	@echo "Therefore, the only make target you need to invoke for this package is;         "
 	@echo ""
 	@echo "  > make install                                                                "
 	@echo ""
@@ -22,11 +28,14 @@ all:
 	@echo ""
 
 
-.PHONY: install
-install: 
-
-	${INSTALL} --mode=544 --target-directory=${prefix} ${srcdir}/python/scaleAndSetSize.py
-	${INSTALL} --mode=444 --target-directory=${prefix} ${srcdir}/python/ScaleAndSetSizeObject.py
+# .PHONY: install
+# install:
+#
+#	chmod 444 ${prefix}/scaleAndSetSize.py
+#	chmod 444 ${prefix}/ScaleAndSetSizeObject.py
+#	${INSTALL} --verbose --directory  ${prefix}/python
+#	${INSTALL} --verbose --target-directory=${prefix} README 
+#	${INSTALL} --verbose --target-directory=${prefix}/python ./python/runFfmpeg.py
 
 
 .PHONY: displaySettings
@@ -38,3 +47,4 @@ displaySettings:
 	@echo "srcdir               = ${srcdir}"
 	@echo "builddir             = ${builddir}"
 	@echo "GNUPLOT              = ${GNUPLOT}"
+	@echo "gimpdir              = ${gimpdir}"
