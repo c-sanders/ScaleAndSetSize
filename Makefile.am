@@ -23,7 +23,7 @@ all:
 	@echo "For more information about installing the GIMP Plugin, please refer to the      "
 	@echo "INSTALL file which should have been distributed as part of this package.        "
 	@echo ""
-	@echo "Therefore, the only make target you need to invoke for this package is;         "
+	@echo "The only make target you need to invoke for this package is;                    "
 	@echo ""
 	@echo "  > make install                                                                "
 	@echo ""
