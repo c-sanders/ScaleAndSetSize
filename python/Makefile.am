@@ -6,10 +6,11 @@
 
 # Install these files into the directory which is specified by ${prefix}
 
-gimpdir = ${prefix}
+gimpdir         = ${prefix}
+gimp_supportdir = ${prefix}
 
-gimp_SCRIPTS = scaleAndSetSize.py \
-               ScaleAndSetSizeObject.py
+gimp_SCRIPTS         = scaleAndSetSize.py
+gimp_support_SCRIPTS = ScaleAndSetSizeObject.py
 
 
 # all:
@@ -22,11 +23,13 @@ gimp_SCRIPTS = scaleAndSetSize.py \
 #	@echo ""
 
 
-.PHONY: install
-install: 
+install-exec-hook: install-gimp-plugins
+.PHONY: install-gimp-plugins
+install-gimp-plugins:
 
-	mkdir -p ${prefix}
-	${INSTALL} -m 444 ${gimp_SCRIPTS} ${prefix}
+	${MKDIR_P} ${prefix}
+	${INSTALL} -m 544 ${gimp_SCRIPTS} ${prefix}
+	${INSTALL} -m 444 ${gimp_support_SCRIPTS} ${prefix}
 
 
 .PHONY: displaySettings
@@ -39,3 +42,5 @@ displaySettings:
 	@echo "builddir             = ${builddir}"
 	@echo "GNUPLOT              = ${GNUPLOT}"
 	@echo "gimpdir              = ${gimpdir}"
+	@echo "DESTDIR              = ${DESTDIR}"
+	@echo "destdir              = ${destdir}"

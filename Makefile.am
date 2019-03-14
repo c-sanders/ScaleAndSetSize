@@ -51,3 +51,6 @@ displaySettings:
 	@echo "builddir             = ${builddir}"
 	@echo "GNUPLOT              = ${GNUPLOT}"
 	@echo "gimpdir              = ${gimpdir}"
+	@echo "INSTALL              = ${INSTALL}"
+	@echo "INSTALL_SCRIPT       = ${INSTALL_SCRIPT}"
+	@echo "MKDIR_P              = ${MKDIR_P}"
