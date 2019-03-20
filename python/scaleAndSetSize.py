@@ -68,7 +68,7 @@ scale_and_set_size_interactive(
 
 
 def \
-scale_and_set_size_noninteractive(
+scale_and_set_size_file_noninteractive(
 
   horizontalResolution,
   verticalResolution,
@@ -99,19 +99,89 @@ scale_and_set_size_noninteractive(
 
 	debug = False
 
+	fileHandle = open(listFiles, "r")
+
+	filesList = fileHandle.read()
+
+	fileHandle.close()
+
+	listFiles = filesList.split("\n")
+
+	print("%s : Number of elements in list = %d" % (nameFunction, len(listFiles)))
+	print("%s : File list = %s" % (nameFunction, listFiles))
+
+	for filename in listFiles :
+
+		print("%s : ========================================" % (nameFunction))
+		print("%s : Filename = %s" % (nameFunction, filename))
+		print("%s : ========================================" % (nameFunction))
+
+		if (not path.isfile(filename)) :
+
+			print("%s :    > is NOT a file" % (nameFunction))
+
+			continue
+
+		# Open the image file and get its drawable object.
+
+		image    = pdb.gimp_file_load(filename, filename)
+		drawable = pdb.gimp_image_get_active_layer(image)
+
+		#
+
+		scale_and_set_size_interactive(
+		  image,
+		  drawable,
+		  horizontalResolution,
+		  verticalResolution,
+		  interpolationMode,
+		  filename
+		)
+
+		# Close the image now that we have finished with it, otherwise it will use up memory unnecessarily.
+
+		pdb.gimp_image_delete(image)
+
+		print("%s : Exit" % (nameFunction))
+
+
+def \
+scale_and_set_size_list_noninteractive(
+
+  horizontalResolution,
+  verticalResolution,
+  interpolationMode,    # 0,1,2,3 : 3 = INTERPOLATION_LANCZOS
+  listFiles
+) :
+
+	nameFunction = "scale_and_set_size_noninteractive"
+
+
+	print("%s : Enter" % (nameFunction))
+
+	print("%s : Checking if Interpolation mode value is valid" % (nameFunction))
+
+	if (interpolationMode == INTERPOLATION_LANCZOS) :
+
+		interpolationMode = 3
+
+		# if ((int(interpolationMode) < 0) or (int(interpolationMode) > 3)) :
+
+	else :
+
+		print("%s : Interpolation mode value is NOT valid = %s" % (nameFunction, str(interpolationMode)))
+
+		raise Exception("Invalid value for parameter : interpolationMode")
+
+	print("%s : Interpolation mode value IS valid = %s" % (nameFunction, interpolationMode))
+
+	debug = False
+
 	IFS   = ":"
-
-	# fileHandle = open(listFile, "r")
-
-	# listFiles = fileHandle.read().splitlines()
-
-	# fileHandle.close()
 
 	# listFiles = fileContents.split(IFS)
 
-	listFiles_split = listFiles.split(IFS)
-
-	listFiles = listFiles_split
+	listFiles = listFiles.split(IFS)
 
 	print("%s : Number of elements in list = %d" % (nameFunction, len(listFiles)))
 	print("%s : File list = %s" % (nameFunction, listFiles))
@@ -182,24 +252,45 @@ register(
 
 
 register(
-	"scale_and_set_size_noninteractive",                          # The name of the command.
-	"Scale and set an image to a particular size",                # A brief description of the command.
-	"Scale and set an image to a particular size",                # Help message.
-	"Craig Sanders",                                              # Author.
-	"Craig Sanders",                                              # Copyright holder.
-	"2018",                                                       # Date.
-	"Scale and set image size",                                   # The way the script will be referred to in the menu.
-	# "RGB*, GRAY*",                                              # Image mode
-	"",                                                           # Create a new image, don't work on an existing one.
+	"scale_and_set_size_file_noninteractive",                      # The name of the command.
+	"Scale and set to a particular size, one or more images.",     # A brief description of the command.
+	"Scale and set to a particular size, one or more images.",     # Help message.
+	"Craig Sanders",                                               # Author.
+	"Craig Sanders",                                               # Copyright holder.
+	"2018",                                                        # Date.
+	"Scale and set image size",                                    # The way the script will be referred to in the menu.
+	# "RGB*, GRAY*",                                               # Image mode
+	"",                                                            # Create a new image, don't work on an existing one.
 	[
 		(PF_INT,    "horizontalResolution", "Horizontal resolution (in pixels)",       1920),
 		(PF_INT,    "verticalResolution",   "Vertical resolution (in pixels)",         1080),
-		(PF_INT,    "interpolationMode",    "Interpolation mode (0,1,2, or 3)",         3),
-		(PF_STRING, "listFiles",            "List of files to operate on (the files in the list should be separated by ':' characters)", "")
+		(PF_INT,    "interpolationMode",    "Interpolation mode (0,1,2, or 3)",        3),
+		(PF_STRING, "listFiles",            "Filename of a text file which contains the list of image files to operate on. Each entry in the text file should reside on a separate line.)", "")
 	],
 	[],
-	scale_and_set_size_noninteractive,
-	menu="<Image>/File/Batch process files")
+	scale_and_set_size_file_noninteractive,
+	menu="<Image>/File/Batch process files - File")
+
+
+register(
+	"scale_and_set_size_list_noninteractive",                      # The name of the command.
+	"Scale and set to a particular size, one or more images.",     # A brief description of the command.
+	"Scale and set to a particular size, one or more images.",     # Help message.
+	"Craig Sanders",                                               # Author.
+	"Craig Sanders",                                               # Copyright holder.
+	"2018",                                                        # Date.
+	"Scale and set image size",                                    # The way the script will be referred to in the menu.
+	# "RGB*, GRAY*",                                               # Image mode
+	"",                                                            # Create a new image, don't work on an existing one.
+	[
+		(PF_INT,    "horizontalResolution", "Horizontal resolution (in pixels)",       1920),
+		(PF_INT,    "verticalResolution",   "Vertical resolution (in pixels)",         1080),
+		(PF_INT,    "interpolationMode",    "Interpolation mode (0,1,2, or 3)",        3),
+		(PF_STRING, "listFiles",            "List of image files to operate on. The entries in the list should be separated by ':' characters.", "")
+	],
+	[],
+	scale_and_set_size_list_noninteractive,
+	menu="<Image>/File/Batch process files - List")
 
 
 main()
