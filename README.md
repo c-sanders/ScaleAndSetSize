@@ -122,10 +122,6 @@ The command which was just presented, might seem a little overwhelming. So to tr
 	     --batch '(gimp-quit 0)'                                           # Instruct GIMP to quit, and in doing so, return a value of 0 to the program which invoked it.
 
 
-As can be seen from the comments, the "READ_LIST_FROM_STDIN" argument to the Plugin, forces it to read the list of foreground image filenames from stdin. This is
-the reason why stdin of the gimp command, is connected to stdout of the find command by way of a pipe.
-
-
 Registering the Plugin with GIMP.
 ---------------------------------
 
