@@ -1,8 +1,8 @@
 Python Script and associated GIMP Plugin to scale and set the size of an image.
 ===============================================================================
 
-This repository contains Python code which is responsible for the implementation of 3 GIMP Plugins. All 3 of these Plugins can be used scale and set the
-size of image, and they implemented by the following 3 Python functions;
+This repository contains Python code which is responsible for the implementation of 3 GIMP Plugins. All 3 of these Plugins can be used to scale and set the
+size of image, and they are implemented by the following 3 Python functions;
 
 * scale_and_set_size_interactive
 * scale_and_set_size_file_noninteractive
