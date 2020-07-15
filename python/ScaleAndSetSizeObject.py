@@ -56,7 +56,7 @@ class ScaleAndSetSizeObject :
 
 	def run(self) :
 
-		nameMethod = self.nameClass + "::__init__"
+		nameMethod = self.nameClass + "::run"
 
 
 		print("%s : Enter" % (nameMethod))

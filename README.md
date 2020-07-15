@@ -102,8 +102,9 @@ To invoke this Plugin non-interactively, issue a command from the command line w
 > batch command experienced an execution error:
 > Error: ( : 1) eval: unbound variable: \
 
-This Plugin will operate on a list of one or more files. This list of files should itself be stored in a text file, and this text file should be passed as the
-fifth and final argument to the Plugin.
+This Plugin will operate on a list of files. This list of files should itself be stored in a text file, and this text file in turn should be passed as the
+fifth and final argument to the Plugin. In the example invocation of the Plugin above, it is assumed that the file "/home/foo/file_list.txt" exists, and
+that it contains the list of files.
 
 The command which was just presented, might seem a little overwhelming. So to try and help explain what it is doing, here is the same command but with comments added.
 
@@ -139,32 +140,31 @@ process, GIMP also needs to know some other information about the Plugin which i
 How the Plugin is implemented.
 ------------------------------
 
-	runPlugin-multiple-fromList
+	scale_and_set_size_file_noninteractive
 	 |
-	 |- OverlayImageAgent Ctor
-	 |
-	 |- OverlayImageAgent.runMultipleFromList
+	 |- scale_and_set_size_interactive
 	     |
-	     |- OverlayImageAgent.__getForegroundImageAndDrawable
+	     |- ScaleAndSetSizeObject Ctor
 	     |
-	     |- OverlayImageAgent.__displayDiagnosticData
-	     |
-	     |- OverlayImageAgent.__run
+	     |- ScaleAndSetSizeObject.__run
 	         |
-	         |- OverlayImageAgent.__copyAndPasteForegroundImage
+	         |- ScaleAndSetSizeObject.computeResizingFactor
+	         |
+	         |- ScaleAndSetSizeObject.scale
 	         |   |
-	         |   |- OverlayImageAgent.__copyForegroundImageIntoBuffer
+	       	 |   |- pdb.gimp_image_scale_full
+	         |
+	         |- ScaleAndSetSizeObject.resizeAndCrop
 	         |   |
-	         |   |- OverlayImageAgent.__pauseAndProgressDisplay
+	         |   |- pdb.gimp_image_resize
+	         |   |
+	         |   |- pdb.gimp_image_crop
 	         |
-	         |- OverlayImageAgent.__copyAndPasteForegroundImageAsNew
+	         |- ScaleAndSetSizeObject.offset
+	         |   |
+	         |   |- pdb.gimp_drawable_offset
 	         |
-	         |- OverlayImageAgent.__displayDiagnosticData
-	         |
-	         |- OverlayImageAgent.__flattenAndSaveImage
+	         |- ScaleAndSetSizeObject.save
 	             |
-	             |- OverlayImageAgent.__displayDiagnosticData
-	             |
-	             |- OverlayImageAgent.__pauseAndProgressDisplay
-	             |
-	             |- OverlayImageAgent.__pauseAndProgressDisplay
+	             |- pdb.gimp_image_flatten
+
