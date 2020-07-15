@@ -36,8 +36,8 @@ to the underlying C functionality.
 For the curious reader, more information about GIMP-Python can be found [here](http://www.jamesh.id.au/software/pygimp/).
 
 
-Function - scale_and_set_size_interactive : Invoking the Python Script interactively from within GIMP.
-------------------------------------------------------------------------------------------------------
+Function : scale_and_set_size_interactive
+-----------------------------------------
 
 To invoke the Python Script interactively, start up GIMP and then click;
 
