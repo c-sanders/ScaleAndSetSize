@@ -103,7 +103,7 @@ To invoke this Plugin non-interactively, issue a command from the command line w
 > Error: ( : 1) eval: unbound variable: \
 
 This Plugin will operate on a list of one or more files. This list of files should itself be stored in a text file, and this text file should be passed as the
-fifth and final argument tp the Plugin.
+fifth and final argument to the Plugin.
 
 The command which was just presented, might seem a little overwhelming. So to try and help explain what it is doing, here is the same command but with comments added.
 
