@@ -134,6 +134,8 @@ the following two commands;
 		          )' \
 		 --batch "(gimp-quit 1)"
 
+or
+
 	gimp --no-interface \
 		 --verbose \
 		 --console-messages \
@@ -148,7 +150,7 @@ the following two commands;
 				  )' \
 		 --batch "(gimp-quit 1)"
 
-> A quick note about the syntax of this command.
+> A quick note about the syntax of these two commands.
 >
 > The arguments to a batch sub-command should be placed within the batch sub-command's parentheses. These arguments seem to get passed directly to
 > GIMP, therefore they should not contain any shell special or control characters. For example, if the arguments contained one or more instances of the "\\"
