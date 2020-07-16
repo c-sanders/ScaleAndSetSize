@@ -57,14 +57,14 @@ Next, from within the Python Console Window, invoke the following two commands;
 The second command should display a list of those directories which Python searches for modules. If the directory which contains
 the Python Script is not shown in this list, then invoke the following command;
 
-	>>> sys.path = <Name_of_dir_containing_Python_Script> + sys.path
+	>>> sys.path.insert(0, <Name_of_dir_containing_Python_Script>)
 
 This should add - by prepending to the front of the list of directories that Python searches for modules, the directory which contains
 the Python Script.
 
 For example, if the Python source code file which implements a Plugin, resides in /home/foo/.gimp-2.8/plug-ins, then you should execute the following command;
 
-	>>> sys.path = "/home/foo/.gimp-2.8/plug-ins" + sys.path
+	>>> sys.path.insert(0, "/home/foo/.gimp-2.8/plug-ins")
 
 Now you should only have to invoke the following two commands in order to get the Python Script to run from within GIMP.
 
