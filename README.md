@@ -1,8 +1,9 @@
 Python Script and associated GIMP Plugin to scale and set the size of an image.
 ===============================================================================
 
-This repository contains Python code which is responsible for the implementation of 3 GIMP Plugins. All 3 of these Plugins can be used to scale and set the
-size of image, and they are implemented by the following 3 Python functions;
+This repository contains Python code which is responsible for the implementation of a GIMP Plugin. This Plugin is available in 3 different versions, and all of
+them can be used to scale and set the size of image. Each of the 3 different versions of the Plugin are implemented by a different Python function. These
+3 functions are called;
 
 * scale_and_set_size_interactive
 * scale_and_set_size_file_noninteractive
@@ -70,8 +71,6 @@ Invoking the GIMP Plugin interactively from within GIMP.
 --------------------------------------------------------
 **(Function : scale_and_set_size_interactive)**
 
-
-
 To invoke the GIMP Plugin interactively, start up GIMP and then use it to open the image which is to be operated on by the Plugin. Once this is done, select;
 
   Image > Craig's Utilities > Scale and set image size
@@ -81,8 +80,11 @@ Doing this should cause the following panel to be displayed.
 ![Test image](/images/Panel.png "Panel displayed by the Image Overlay Plugin")
 
 
-Invoking this Plugin non-interactively from the command line.
--------------------------------------------------------------
+Invoking the GIMP Plugin non-interactively from the command line.
+-----------------------------------------------------------------
+**(Function : scale_and_set_size_file_noninteractive)**
+
+
 
 To invoke this Plugin non-interactively, issue a command from the command line which is similar to the following;
 
