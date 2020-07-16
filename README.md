@@ -109,7 +109,8 @@ Doing this should cause the following panel to be displayed.
 Invoking the GIMP Plugins non-interactively from the command line.
 ------------------------------------------------------------------
 
-To invoke this Plugin non-interactively, issue a command from the command line which is similar to the following;
+To invoke either one of the two non-interactive versions of the Plugin in a non-interactive manner, issue a command from the command line which is similar to either one
+the following two commands;
 
 	gimp --no-interface \
 		 --verbose \
@@ -123,6 +124,20 @@ To invoke this Plugin non-interactively, issue a command from the command line w
 		           3
 		           "/home/foo/file_list.txt"
 		          )' \
+		 --batch "(gimp-quit 1)"
+
+	gimp --no-interface \
+		 --verbose \
+		 --console-messages \
+		 --batch-interpreter="plug-in-script-fu-eval" \
+		 --batch '(
+				   python-fu-scale-and-set-size-list-noninteractive
+				   RUN-NONINTERACTIVE
+				   1920
+				   1080
+				   3
+				   "/home/foo/file_list.txt"
+				  )' \
 		 --batch "(gimp-quit 1)"
 
 > A quick note about the syntax of this command.
