@@ -161,7 +161,7 @@ or
 
 **scale-and-set-size-file-noninteractive**
 
-This version of the Plugin will operate on a list of files. This list of files should itself be stored in a text file, and this text file in turn should be passed as the
+This version of the Plugin will operate on a list of files, where the list of files should itself be stored in a text file. This text file in turn should be passed as the
 fifth and final argument to the Plugin. In the example invocation of the Plugin above, it is assumed that the file "/home/foo/file_list.txt" exists, and
 that it contains the list of files.
 
@@ -181,6 +181,9 @@ The command which was just presented, might seem a little overwhelming. So to tr
 	              )' \                                                     # End the current batch sub-command.
 	     --batch '(gimp-quit 0)'                                           # Instruct GIMP to quit, and in doing so, return a value of 0 to the program which invoked it.
 
+**scale-and-set-size-list-noninteractive**
+
+This version of the Plugin will operate on a list of files, where the list of files should be passed to this Plugin via stdin.
 
 Registering the Plugin with GIMP.
 ---------------------------------
