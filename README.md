@@ -10,15 +10,23 @@ by a different Python function. These three functions are called;
 * scale_and_set_size_file_noninteractive
 * scale_and_set_size_list_noninteractive
 
+
 scale_and_set_size_interactive
 ------------------------------
 
 The first version of the Plugin is intended for use in an interactive manner. It is discussed below in the section which is entitled;
 
- >>> Invoking the GIMP Plugin Python functions from within GIMP.
+	>>> Invoking the GIMP Plugin Python functions from within GIMP.
 
 This version of the Plugin is implemented by a Python function which is called **scale_and_set_size_interactive**.
 
+
+scale_and_set_size_file_noninteractive
+--------------------------------------
+
+The second version of the Plugin is intended for use in a non-interactive manner.
+
+	>>> Invoking the GIMP Plugins non-interactively from the command line. 
 
 
 GIMP and its relationship to Python.
