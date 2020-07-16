@@ -38,10 +38,10 @@ to the underlying C functionality.
 For the curious reader, more information about GIMP-Python can be found [here](http://www.jamesh.id.au/software/pygimp/).
 
 
-Invoking the GIMP Plugin Python functions interactively from within GIMP.
--------------------------------------------------------------------------
+Directly invoking the GIMP Plugin Python functions from within GIMP.
+--------------------------------------------------------------------
 
-To invoke the Python Script interactively, start up GIMP and then click;
+To directly invoke from within GIMP, one of the three Python functions which was mentioned above, start up GIMP and then click;
 
   Filters > Python-Fu > Console
 
@@ -61,6 +61,10 @@ the Python Script is not shown in this list, then invoke the following command;
 
 This should add - by prepending to the front of the list of directories that Python searches for modules, the directory which contains
 the Python Script.
+
+For example, if the Python source code file which implements a Plugin, resides in /home/foo/.gimp-2.8/plug-ins, then you should execute the following command;
+
+	>>> sys.path = "/home/foo/.gimp-2.8/plug-ins" + sys.path
 
 Now you should only have to invoke the following two commands in order to get the Python Script to run from within GIMP.
 
