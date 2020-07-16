@@ -76,8 +76,8 @@ Or, alternatively;
 	>>> import scaleAndSetSize
 	>>> HelloWorld.displayMessage("Hello, World!")
 
-Invoking the GIMP Plugin interactively from within GIMP.
---------------------------------------------------------
+Invoking the GIMP Plugins interactively from within GIMP.
+---------------------------------------------------------
 
 To invoke the GIMP Plugin interactively, start up GIMP and then use it to open the image which is to be operated on by the Plugin. Once this is done, select;
 
@@ -88,8 +88,8 @@ Doing this should cause the following panel to be displayed.
 ![Test image](/images/Panel.png "Panel displayed by the Image Overlay Plugin")
 
 
-Invoking the GIMP Plugin non-interactively from the command line.
------------------------------------------------------------------
+Invoking the GIMP Plugins non-interactively from the command line.
+------------------------------------------------------------------
 
 To invoke this Plugin non-interactively, issue a command from the command line which is similar to the following;
 
