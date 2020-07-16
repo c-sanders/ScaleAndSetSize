@@ -36,8 +36,8 @@ to the underlying C functionality.
 For the curious reader, more information about GIMP-Python can be found [here](http://www.jamesh.id.au/software/pygimp/).
 
 
-Function : scale_and_set_size_interactive
------------------------------------------
+Invoking the Python Script interactively from within GIMP.
+----------------------------------------------------------
 
 To invoke the Python Script interactively, start up GIMP and then click;
 
@@ -68,6 +68,8 @@ Now you should only have to invoke the following two commands in order to get th
 
 Invoking the GIMP Plugin interactively from within GIMP.
 --------------------------------------------------------
+Function : scale_and_set_size_interactive :
+-------------------------------------------
 
 To invoke the GIMP Plugin interactively, start up GIMP and then use it to open the image which is to be operated on by the Plugin. Once this is done, select;
 
