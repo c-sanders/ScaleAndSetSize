@@ -38,8 +38,8 @@ to the underlying C functionality.
 For the curious reader, more information about GIMP-Python can be found [here](http://www.jamesh.id.au/software/pygimp/).
 
 
-Invoking one of the three GIMP Plugin Python functions interactively from within GIMP.
---------------------------------------------------------------------------------------
+Invoking the GIMP Plugin Python functions interactively from within GIMP.
+-------------------------------------------------------------------------
 
 To invoke the Python Script interactively, start up GIMP and then click;
 
