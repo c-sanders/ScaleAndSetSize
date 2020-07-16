@@ -1,9 +1,10 @@
 Python Script and associated GIMP Plugin to scale and set the size of an image.
 ===============================================================================
 
-This repository contains Python code which is responsible for the implementation of a GIMP Plugin. This Plugin is available in 3 different versions, and all of
-them can be used to scale and set the size of an image or images. Each of the 3 different versions of the Plugin are implemented by a different Python function. These
-3 functions are called;
+This code in this repository implements a GIMP Plugin which can be used to scale and set the size (dimensions) of one or more image files.
+
+This Plugin is implemented using the Python programming language and is available in 3 different variations. Each of the 3 versions of the Plugin are implemented
+by a different Python function. The 3 functions are called;
 
 * scale_and_set_size_interactive
 * scale_and_set_size_file_noninteractive
@@ -37,8 +38,8 @@ to the underlying C functionality.
 For the curious reader, more information about GIMP-Python can be found [here](http://www.jamesh.id.au/software/pygimp/).
 
 
-Invoking the Python Script interactively from within GIMP.
-----------------------------------------------------------
+Invoking the GIMP Plugin Python Script interactively from within GIMP.
+----------------------------------------------------------------------
 
 To invoke the Python Script interactively, start up GIMP and then click;
 
@@ -69,7 +70,6 @@ Now you should only have to invoke the following two commands in order to get th
 
 Invoking the GIMP Plugin interactively from within GIMP.
 --------------------------------------------------------
-**(Function : scale_and_set_size_interactive)**
 
 To invoke the GIMP Plugin interactively, start up GIMP and then use it to open the image which is to be operated on by the Plugin. Once this is done, select;
 
@@ -82,9 +82,6 @@ Doing this should cause the following panel to be displayed.
 
 Invoking the GIMP Plugin non-interactively from the command line.
 -----------------------------------------------------------------
-**(Function : scale_and_set_size_file_noninteractive)**
-
-
 
 To invoke this Plugin non-interactively, issue a command from the command line which is similar to the following;
 
