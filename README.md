@@ -109,7 +109,15 @@ Doing this should cause the following panel to be displayed.
 Invoking the GIMP Plugins non-interactively from the command line.
 ------------------------------------------------------------------
 
-To invoke either one of the two non-interactive versions of the Plugin in a non-interactive manner, issue a command from the command line which is similar to either one
+To invoke either one of the two non-interactive versions of the Plugin, i.e.;
+
+> python-fu-scale-and-set-size-file-noninteractive
+>
+> or
+>
+> python-fu-scale-and-set-size-list-noninteractive
+
+in a non-interactive manner, issue a command from the command line which is similar to either one
 the following two commands;
 
 	gimp --no-interface \
