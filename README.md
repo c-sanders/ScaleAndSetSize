@@ -71,6 +71,10 @@ Now you should only have to invoke the following two commands in order to get th
 	>>> import HelloWorld
 	>>> HelloWorld.displayMessage("Hello, World!")
 
+Or, alternatively;
+
+	>>> import scaleAndSetSize
+	>>> HelloWorld.displayMessage("Hello, World!")
 
 Invoking the GIMP Plugin interactively from within GIMP.
 --------------------------------------------------------
