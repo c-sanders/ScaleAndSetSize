@@ -159,7 +159,9 @@ or
 > batch command experienced an execution error:
 > Error: ( : 1) eval: unbound variable: \
 
-This Plugin will operate on a list of files. This list of files should itself be stored in a text file, and this text file in turn should be passed as the
+* scale-and-set-size-file-noninteractive
+
+This version of the Plugin will operate on a list of files. This list of files should itself be stored in a text file, and this text file in turn should be passed as the
 fifth and final argument to the Plugin. In the example invocation of the Plugin above, it is assumed that the file "/home/foo/file_list.txt" exists, and
 that it contains the list of files.
 
