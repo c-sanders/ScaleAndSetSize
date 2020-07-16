@@ -66,8 +66,8 @@ Now you should only have to invoke the following two commands in order to get th
 	>>> HelloWorld.displayMessage("Hello, World!")
 
 
-Invoking the GIMP Plugin interactively from within GIMP.\nFunction : scale_and_set_size_interactive :
------------------------------------------------------------------------------------------------------
+Invoking the GIMP Plugin interactively from within GIMP.\\nFunction : scale_and_set_size_interactive :
+------------------------------------------------------------------------------------------------------
 
 To invoke the GIMP Plugin interactively, start up GIMP and then use it to open the image which is to be operated on by the Plugin. Once this is done, select;
 
