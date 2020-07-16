@@ -26,7 +26,7 @@ scale_and_set_size_file_noninteractive
 
 The second version of the Plugin is intended for use in a non-interactive manner.
 
-	>>> Invoking the GIMP Plugins non-interactively from the command line. 
+> Invoking the GIMP Plugins non-interactively from the command line. 
 
 
 GIMP and its relationship to Python.
