@@ -14,7 +14,8 @@ by a different Python function. These three functions are called;
 scale_and_set_size_interactive
 ------------------------------
 
-The first version of the Plugin is intended for use in an interactive manner. It is discussed below in the section which is entitled;
+This Python function is responsible for implementing the first version of the Plugin. This version of the Plugin is intended for use in an interactive manner.
+It is discussed below in the section which is entitled;
 
 > Invoking the GIMP Plugin Python functions from within GIMP.
 
