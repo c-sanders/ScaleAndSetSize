@@ -4,14 +4,14 @@ Python source code and associated GIMP Plugins to scale and set the size of an i
 The Python source code which is contained within this repository, implements a GIMP Plugin which can be used to scale and set the size, i.e. width and height (in
 pixels), of one or more image files.
 
-This GIMP Plugin - hereafter referred to simply as a Plugin, is implemented using the Python programming language and is available in 3 different versions. Each of the three versions of the Plugin are implemented
-by a different Python function. These three functions are called;
+This GIMP Plugin - hereafter referred to simply as a Plugin, is implemented using the Python programming language and is available in 3 different variants. Each of
+these three variants is implemented by a different Python function and these three Python functions are called;
 
 * scale_and_set_size_interactive
 * scale_and_set_size_file_noninteractive
 * scale_and_set_size_list_noninteractive
 
-and each of them will be discussed on an individual basis in just a moment. But before doing so, let's take a brief look at the relationship between
+Soon, each of these functions will be discussed on an individual basis. But before doing so, let's take a brief look at the relationship between
 GIMP and Python.
 
 
