@@ -5,7 +5,7 @@ The Python source code which is contained within this repository, implements a G
 pixels), of one or more image files.
 
 This GIMP Plugin - hereafter referred to simply as a Plugin, is implemented using the Python programming language and is available in 3 different variants. Each of
-these three variants is implemented by a different Python function and these three Python functions are called;
+these three variants is implemented by a different Python function and in turn, these three Python functions are called;
 
 * scale_and_set_size_interactive
 * scale_and_set_size_file_noninteractive
