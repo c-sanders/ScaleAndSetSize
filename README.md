@@ -64,9 +64,10 @@ This Python function is responsible for implementing the second variant of the P
 Invoking the GIMP Plugin Python functions from within GIMP.
 -----------------------------------------------------------
 
-It is possible to directly invoke Python functions from within GIMP. However, it does not appear to be possible to directly invoke 
+It is possible to directly invoke Python functions from within GIMP. However, it does not appear to be possible to directly invoke Python Plugin functions
+from within GIMP. When we state "directly invoking Python functions from within GIMP", we mean invoking Python functions from within the GIMP Python Console Panel.
 
-To directly invoke from within GIMP, one of the three Python functions which was mentioned above, start up GIMP and then click;
+To try and directly invoke from within GIMP, one of the three Python functions which was mentioned above, start up GIMP and then click;
 
   Filters > Python-Fu > Console
 
@@ -84,8 +85,7 @@ the Python Script is not shown in this list, then invoke the following command;
 
 	>>> sys.path.insert(0, <Name_of_dir_containing_Python_Script>)
 
-This should add - by prepending to the front of the list of directories that Python searches for modules, the directory which contains
-the Python Script.
+This should prepend to the front of the list of directories that Python searches for modules, the directory which contains the Python Script.
 
 For example, if the Python source code file which implements a Plugin, resides in /home/foo/.gimp-2.8/plug-ins, then you should execute the following command;
 
@@ -93,13 +93,15 @@ For example, if the Python source code file which implements a Plugin, resides i
 
 Now you should only have to invoke the following two commands in order to get the Python Script to run from within GIMP.
 
-	>>> import HelloWorld
-	>>> HelloWorld.displayMessage("Hello, World!")
-
-Or, alternatively;
-
 	>>> import scaleAndSetSize
 	>>> HelloWorld.displayMessage("Hello, World!")
+
+You might find that running the import command causes GIMP's Python Console Panel to disappear and that GIMP displays a Panel similar to the following;
+
+![Test image](/images/Panel_Python-Fu_Console_Message.png "GIMP Message Panel")
+
+
+
 
 Invoking the GIMP Plugins interactively from within GIMP.
 ---------------------------------------------------------
