@@ -45,7 +45,7 @@ For the curious reader, more information about GIMP-Python can be found [here](h
 Python function : scale_and_set_size_interactive
 ------------------------------------------------
 
-This Python function is responsible for implementing the first version of the Plugin. This version of the Plugin is intended for use in an interactive manner.
+This Python function is responsible for implementing the first variant of the Plugin. This version of the Plugin is intended for use in an interactive manner.
 It is discussed below in the section which is entitled;
 
 > Invoking the GIMP Plugin Python functions from within GIMP.
@@ -56,13 +56,15 @@ This version of the Plugin is implemented by a Python function which is called *
 Python function : scale_and_set_size_file_noninteractive
 --------------------------------------------------------
 
-This Python function is responsible for implementing the second version of the Plugin. This version of the Plugin is intended for use in a non-interactive manner.
+This Python function is responsible for implementing the second variant of the Plugin. This version of the Plugin is intended for use in a non-interactive manner.
 
 > Invoking the GIMP Plugins non-interactively from the command line. 
 
 
 Invoking the GIMP Plugin Python functions from within GIMP.
 -----------------------------------------------------------
+
+It is possible to directly invoke Python functions from within GIMP. However, it does not appear to be possible to directly invoke 
 
 To directly invoke from within GIMP, one of the three Python functions which was mentioned above, start up GIMP and then click;
 
