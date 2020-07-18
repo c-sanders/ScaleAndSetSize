@@ -98,7 +98,7 @@ Now you should only have to invoke the following two commands in order to get th
 
 You might find that running the import command causes GIMP's Python Console Panel to disappear and that GIMP displays a Panel similar to the following;
 
-![Test image](/images/Panel_Python-Fu_Console_Message.png "GIMP Message Panel")
+![Test image](/images/Panel_message.png "GIMP Message Panel")
 
 
 
