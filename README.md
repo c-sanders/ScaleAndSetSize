@@ -147,13 +147,18 @@ following;
 
 ![Test image](/images/Panel_Message_Python-Console_crashed.png "GIMP Message Panel")
 
-The description which is contained within this Panel is not all that helpful for trying to work out what has gone wrong. You might find that in addition to displaying
+The description which is contained within this Panel is not all that helpful for trying to figure out what has gone wrong. You might find that in addition to displaying
 this panel, GIMP may have also written a message to the console which states something like;
 
 	(/usr/lib/gimp/2.0/plug-ins/python-console.py:17118): LibGimpBase-ERROR **: gimp_env_init() must only be called once!
 
-This is a bit more informative.
+This is a bit more informative. It leads the author to believe that the invocation of the "main" function at the bottom of the source code file, is causing
+the "gimp_env_init" function to be invoked.
 
+As part of GIMP's startup routine, it reads in any Plugins which are in its search path. During this startup routine, it must execute the "gimp_env_init" function
+while it is loading any Plugins which it finds. However, when we instruct the Python Console to try and import the file which contains the HelloGIMP Plugin,
+the presence of the "main" function within this Plugin causes GIMP to try and execute the "gimp_env_init" function again. Seeing as the "gimp_env_init" function
+should only be invoked once - as we were informed of by the message, this is what causes GIMP to abort the loading of the HelloGIMP Plugin.
 
 Invoking the GIMP Plugins interactively from within GIMP.
 ---------------------------------------------------------
