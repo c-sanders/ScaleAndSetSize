@@ -139,10 +139,11 @@ For example, in the case of the HelloGIMP Plugin, you should execute the followi
 
 Now you should only have to invoke the following two commands in order to get the Python Script to run from within GIMP.
 
-	>>> import scaleAndSetSize
-	>>> HelloWorld.displayMessage("Hello, World!")
+	>>> import HelloGIMP
+	>>> HelloGIMP.displayMessage("Hello, GIMP!")
 
-You might find that running the import command causes the GIMP Python Console Panel to disappear and that GIMP displays a Panel similar to the following;
+You should more than likely find that running the import command causes the GIMP Python Console Panel to disappear and that GIMP displays a Panel similar to the
+following;
 
 ![Test image](/images/Panel_Message_Python-Console_crashed.png "GIMP Message Panel")
 
