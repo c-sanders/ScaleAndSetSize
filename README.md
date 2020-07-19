@@ -64,6 +64,42 @@ This Python function is responsible for implementing the second variant of the P
 Invoking the GIMP Plugin Python functions from within GIMP.
 -----------------------------------------------------------
 
+Consider the following simple Python Plugin;
+
+	#!/usr/bin/env python
+	
+	
+	from gimpfu import register, PF_STRING, main
+	
+	
+	def displayMessage(
+	
+	  message
+	) :
+		print("Message = %s" % (message))
+	
+	
+	register(
+		"displayMessage",      # The name of the command.
+		"Display a message.",  # A brief description of the command.
+		"Display a message.",  # Help message.
+		"Joe Citizan",         # Author.
+		"Joe Citizan",         # Copyright holder.
+		"2020",                # Date.
+		"Display a message",   # The way the script will be referred to in the menu.
+		# "RGB*, GRAY*",       # Image mode
+		"",                    # Create a new image, don't work on an existing one.
+		[
+			(PF_STRING, "message", "Message to display", "Hello World!"),
+		],
+		[],
+		displayMessage,
+		menu="<Image>/Image/Utilities/")
+	
+	
+	main()
+	
+
 It is possible to directly invoke Python functions from within GIMP. However, it does not appear to be possible to directly invoke Python Plugin functions
 from within GIMP. When we state "directly invoking Python functions from within GIMP", we mean invoking Python functions from within the GIMP Python Console Panel.
 
