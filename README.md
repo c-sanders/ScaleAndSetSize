@@ -171,6 +171,9 @@ then we should be successful as the following image shows.
 
 The problem however, with commenting out the "main" function, is that GIMP will no longer be able to load the source code in this file as a Plugin.
 
+> So to summarise this section, it is possible to directly invoke Python functions from within GIMP, but it is not possible to directly invoke Python Plugin
+> functions from within GIMP.
+
 Invoking the GIMP Plugins interactively from within GIMP.
 ---------------------------------------------------------
 
@@ -218,13 +221,13 @@ or
 		 --console-messages \
 		 --batch-interpreter="plug-in-script-fu-eval" \
 		 --batch '(
-				   python-fu-scale-and-set-size-list-noninteractive
-				   RUN-NONINTERACTIVE
-				   1920
-				   1080
-				   3
-				   "/home/foo/file_list.txt"
-				  )' \
+		           python-fu-scale-and-set-size-list-noninteractive
+		           RUN-NONINTERACTIVE
+		           1920
+		           1080
+		           3
+		           "/home/foo/file_list.txt"
+		          )' \
 		 --batch "(gimp-quit 1)"
 
 > A quick note about the syntax of these two commands.
