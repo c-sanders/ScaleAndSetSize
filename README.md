@@ -72,7 +72,7 @@ Consider the following simple Python Plugin;
 	#!/usr/bin/env python
 	
 	
-	from gimpfu import register, PF_STRING, main
+	from gimpfu import register, main, PF_STRING
 	
 	
 	def displayMessage(
@@ -93,7 +93,7 @@ Consider the following simple Python Plugin;
 		# "RGB*, GRAY*",       # Image mode
 		"",                    # Create a new image, don't work on an existing one.
 		[
-			(PF_STRING, "message", "Message to display", "Hello World!"),
+			(PF_STRING, "message", "Message to display", "Hello GIMP!"),
 		],
 		[],
 		displayMessage,
