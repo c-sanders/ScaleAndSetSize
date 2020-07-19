@@ -103,13 +103,17 @@ Consider the following simple Python Plugin;
 	main()
 
 As can be seen from this source code, the Plugin itself is rather simple. It is composed of a single function called "displayMessage" which is registered with
-GIMP by the imported GIMP function which is called "register".
+GIMP by way of a function which is called "register". The "register" function itself is imported from GIMP by way of the;
 
-Assume this Plugin is stored in a file called;
+	from * import *
+
+statement towards the top of the source code file.
+
+Let's assume that this Plugin is stored in a file called;
 
 > /home/foo/.gimp-2.8/plug-ins/HelloGIMP.py 
 
-To try and directly invoke from within GIMP, one of the three Python functions which was mentioned above, start up GIMP and then click;
+In order to try and directly invoke this Plugin's register function from within GIMP, first start up GIMP and then click;
 
   Filters > Python-Fu > Console
 
@@ -117,7 +121,7 @@ Doing this should cause a Python Console Panel - similar to the following, to be
 
 ![Test image](/images/Panel_Python-Fu.png "GIMP's Python-Fu Console Panel")
 
-Next, from within the Python Console Window, invoke the following two commands;
+Next, from within the Python Console Panel, invoke the following two commands;
 
 	>>> import sys
 	>>> print("%s" % (sys.path))
