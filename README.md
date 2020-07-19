@@ -94,7 +94,7 @@ Consider the following simple Python Plugin;
 		# "RGB*, GRAY*",       # Image mode
 		"",                    # Create a new image, don't work on an existing one.
 		[
-			(PF_STRING, "message", "Message to display", "Hello GIMP!"),
+			(PF_STRING, "message", "Message to display", "Hello, GIMP!"),
 		],
 		[],
 		displayMessage,
@@ -164,6 +164,8 @@ do, and because it knows that "gimp_env_init" function should only be invoked on
 Plugin. This is what the author suspects results in the message being displayed.
 
 If we comment out the line of source code which invokes the "main" function, and then try to import the "HelloGIMP" Plugin again, we should have more success.
+
+![Test image](/images/Panel_Python-Console_success.png "GIMP Python Console panel")
 
 Invoking the GIMP Plugins interactively from within GIMP.
 ---------------------------------------------------------
