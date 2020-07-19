@@ -133,7 +133,7 @@ the Python Script is not shown in this list, then invoke the following command;
 
 This should prepend to the list of directories that Python searches for modules, the directory which contains the Python Script.
 
-For example, if the Python source code file which implements a Plugin, resides in /home/foo/.gimp-2.8/plug-ins, then you should execute the following command;
+For example, in the case of the HelloGIMP Plugin, you should execute the following command;
 
 	>>> sys.path.insert(0, "/home/foo/.gimp-2.8/plug-ins")
 
