@@ -156,7 +156,7 @@ from which it was started. This message should state something like the followin
 This is a bit more informative, and it leads the author to believe that the invocation of the "main" function at the bottom of the source code file, is what is causing
 the "gimp_env_init" function to be invoked.
 
-As part of GIMP's startup routine, it reads in any Plugins which are in its Plugin Search path. During this startup routine, it must execute the "gimp_env_init" function
+As part of GIMP's startup routine, it reads in any Plugins which are in its Plugin Search path. During this startup routine, GIMP must execute the "gimp_env_init" function
 while it is loading any Plugins which it finds. However, when we instruct the Python Console to try and import the file which contains the HelloGIMP Plugin,
 the presence of the "main" function within this Plugin causes GIMP to try and execute the "gimp_env_init" function again. Seeing as the "gimp_env_init" function
 should only be invoked once - as we were informed of by the message, this is what causes GIMP to abort the loading of the HelloGIMP Plugin.
