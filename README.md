@@ -169,6 +169,8 @@ then we should be successful as the following image shows.
 
 ![Test image](/images/Panel_Python-Console_success.png "GIMP Python Console panel")
 
+The problem however, with commenting out the "main" function, is that GIMP will no longer be able to load the source codein this file as a Plugin.
+
 Invoking the GIMP Plugins interactively from within GIMP.
 ---------------------------------------------------------
 
