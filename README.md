@@ -79,6 +79,7 @@ Consider the following simple Python Plugin;
 	
 	  message
 	) :
+
 		print("Message = %s" % (message))
 	
 	
