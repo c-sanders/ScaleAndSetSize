@@ -101,7 +101,13 @@ Consider the following simple Python Plugin;
 	
 	
 	main()
-	
+
+As can be seen from this source code, the Plugin itself is rather simple. It is composed of a single function called "displayMessage" which is registered with
+GIMP by the imported GIMP function which is called "register".
+
+Assume this Plugin is stored in a file called;
+
+> /home/foo/.gimp-2.8/plug-ins/HelloGIMP.py 
 
 To try and directly invoke from within GIMP, one of the three Python functions which was mentioned above, start up GIMP and then click;
 
