@@ -147,8 +147,9 @@ following;
 
 ![Test image](/images/Panel_Message_Python-Console_crashed.png "GIMP Message Panel")
 
-The description which is contained within this Panel is not all that helpful for trying to figure out what has gone wrong. If you started GIMP from a command line,
-a terminal, or a console, you might find that in addition to displaying this panel, GIMP may have also written out a message to the console which states something like;
+The description which is contained within this panel is not all that helpful for trying to figure out what has gone wrong. If you started GIMP from a command line,
+a terminal, or a console, you might find that in addition to displaying this panel, GIMP may have also written out a message to the command line, terminal, or console
+which it was started from. This message should state something like the following;
 
 	(/usr/lib/gimp/2.0/plug-ins/python-console.py:17118): LibGimpBase-ERROR **: gimp_env_init() must only be called once!
 
