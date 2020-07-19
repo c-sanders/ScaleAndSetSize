@@ -100,7 +100,12 @@ You might find that running the import command causes the GIMP Python Console Pa
 
 ![Test image](/images/Panel_Message_Python-Console_crashed.png "GIMP Message Panel")
 
+The description which is contained within this Panel is not all that helpful for trying to work out what has gone wrong. You might find that in addition to displaying
+this panel, GIMP may have also written a message to the console which states something like;
 
+	(/usr/lib/gimp/2.0/plug-ins/python-console.py:17118): LibGimpBase-ERROR **: gimp_env_init() must only be called once!
+
+This is a bit more informative.
 
 
 Invoking the GIMP Plugins interactively from within GIMP.
