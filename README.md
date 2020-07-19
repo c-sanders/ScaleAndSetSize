@@ -153,7 +153,7 @@ from which it was started. This message should state something like the followin
 
 	(/usr/lib/gimp/2.0/plug-ins/python-console.py:17118): LibGimpBase-ERROR **: gimp_env_init() must only be called once!
 
-This is a bit more informative. It leads the author to believe that the invocation of the "main" function at the bottom of the source code file, is causing
+This is a bit more informative, and it leads the author to believe that the invocation of the "main" function at the bottom of the source code file, is causing
 the "gimp_env_init" function to be invoked.
 
 As part of GIMP's startup routine, it reads in any Plugins which are in its search path. During this startup routine, it must execute the "gimp_env_init" function
