@@ -163,7 +163,9 @@ the presence of the "main" function within this Plugin causes GIMP to try and ex
 do, and because it knows that "gimp_env_init" function should only be invoked once - as we were informed of by the message, it aborts its attempt to run the HelloGIMP 
 Plugin. This is what the author suspects results in the message being displayed.
 
-If we comment out the line of source code which invokes the "main" function, and then try to import the "HelloGIMP" Plugin again, we should have more success.
+If go back to the Python source code file which implements the Plugin, and we edit it so as to comment out the line of source code which invokes the "main" function,
+then we should hopefully prevent GIMP from executing it. If we then try and import the "HelloGIMP" Plugin again - using the same sequence of steps as earlier,
+then we should be successful as the following image shows.
 
 ![Test image](/images/Panel_Python-Console_success.png "GIMP Python Console panel")
 
