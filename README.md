@@ -172,7 +172,8 @@ then we should be successful as the following image shows.
 The problem however, with commenting out the "main" function, is that GIMP will no longer be able to load the source code in this file as a Plugin.
 
 > So to summarise the findings of this section, it is possible to directly invoke Python functions from within GIMP, but it is not possible to directly invoke Python Plugin
-> functions from within GIMP.
+> functions from within GIMP. To be more precise, it is not possible to directly invoke from within GIMP, Python functions in source code files which contain
+> an invocation of the Python "main" function.
 
 Invoking the GIMP Plugins interactively from within GIMP.
 ---------------------------------------------------------
