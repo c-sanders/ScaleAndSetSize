@@ -118,7 +118,7 @@ In order to try and directly invoke from within GIMP, the one and only function 
 
   Filters > Python-Fu > Console
 
-Doing this should cause a Python Console Panel - similar to the following, to be displayed.
+Doing this should cause a Python Console Panel - similar to the one shown immediately below, to be displayed.
 
 ![Test image](/images/Panel_Python-Fu.png "GIMP's Python-Fu Console Panel")
 
