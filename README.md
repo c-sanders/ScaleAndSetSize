@@ -127,7 +127,7 @@ Next, from within the Python Console Panel, invoke the following two commands;
 	>>> import sys
 	>>> print("%s" % (sys.path))
 
-The second command should display a list of those directories which Python searches for modules. If the directory which contains
+The second command should display a list of those directories which Python will search for modules. If the directory which contains
 the Python Script is not shown in this list, then invoke the following command;
 
 	>>> sys.path.insert(0, <Name_of_dir_containing_Python_Script>)
