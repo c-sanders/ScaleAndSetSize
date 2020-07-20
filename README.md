@@ -114,7 +114,7 @@ GIMP by way of a function which is called "register". The "register" function it
 
 statement towards the top of the source code file.
 
-In order to try and directly invoke from within GIMP, the one and only function that this Plugin source file defines, i.e. "displayMessage", first start up GIMP and then click;
+In order to try and directly invoke from within GIMP, the one and only function that this Plugin source code file defines, i.e. "displayMessage", first start up GIMP and then click;
 
   Filters > Python-Fu > Console
 
