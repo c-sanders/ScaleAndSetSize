@@ -158,7 +158,7 @@ This is a bit more informative, and it leads the author to believe that the invo
 the "gimp_env_init" function to be invoked.
 
 One of the things that GIMP does as part of its startup routine, is to read in any Plugins which it finds in its Plugin Search path. During this process, it appears though GIMP must execute the "gimp_env_init" function
-while it is loading any Plugins which it finds. Then, when we instruct the Python Console to try and import the Python source code file which contains the display_message Plugin,
+whilst it is loading any Plugins which it finds. Then, when we instruct the Python Console to try and import the Python source code file which contains the display_message Plugin,
 the presence of the "main" function within this Plugin causes GIMP to try and execute the "gimp_env_init" function again. GIMP realises what it is being instructed to
 do, and because it knows that the "gimp_env_init" function should only be invoked once - as we were informed of by the message, it aborts its attempt to run the display_message 
 Plugin. This is what the author suspects results in the message being displayed.
@@ -169,7 +169,7 @@ then we should be successful as the following image shows.
 
 ![Test image](/images/Panel_Python-Console_success.png "GIMP Python Console panel")
 
-The problem however, with commenting out the "main" function, is that GIMP will no longer be able to load the source code in this file as a Plugin.
+The problem however, with commenting out the "main" function, is that GIMP will no longer be able to load the source code in this file as a Plugin during the startup process.
 
 > So to summarise the findings of this section, it is possible to directly invoke Python functions from within GIMP, but it is not possible to directly invoke Python Plugin
 > functions from within GIMP. To be more precise, it is not possible to directly invoke from within GIMP, Python functions in source code files which contain
