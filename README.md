@@ -134,7 +134,7 @@ the Python Script is not shown in this list, then invoke the following command;
 
 This should prepend the directory which contains the Python Script, to the list of directories that Python searches for modules.
 
-For example, in the case of the HelloGIMP Plugin, you should execute the following command;
+For example, in the case of the display_message Plugin, you should execute the following command;
 
 	>>> sys.path.insert(0, "/home/foo/.gimp-2.8/plug-ins")
 
