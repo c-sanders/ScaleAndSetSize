@@ -87,8 +87,8 @@ Consider the following simple Python Plugin;
 		"displayMessage",      # The name of the command.
 		"Display a message.",  # A brief description of the command.
 		"Display a message.",  # Help message.
-		"Joe Citizen",         # Author.
-		"Joe Citizen",         # Copyright holder.
+		"Foo Bar",             # Author.
+		"Foo Bar",             # Copyright holder.
 		"2020",                # Date.
 		"Display a message",   # The way the script will be referred to in the menu.
 		# "RGB*, GRAY*",       # Image mode
