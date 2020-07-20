@@ -140,8 +140,8 @@ For example, in the case of the display_message Plugin, you should execute the f
 
 Now you should only have to invoke the following two commands in order to get the Python Script to run from within GIMP.
 
-	>>> import HelloGIMP
-	>>> HelloGIMP.displayMessage("Hello, GIMP!")
+	>>> import display_message
+	>>> display_message.displayMessage("Hello, GIMP!")
 
 You should more than likely find that running the import command causes the GIMP Python Console Panel to disappear and that GIMP displays a Panel similar to the
 following;
