@@ -67,7 +67,7 @@ Invoking the GIMP Plugin Python functions from within GIMP.
 It is possible to directly invoke Python functions from within GIMP. However, it does not appear to be possible to directly invoke Python Plugin functions
 from within GIMP. When we state "directly invoking Python functions from within GIMP", we mean invoking Python functions from within the GIMP Python Console Panel.
 
-Consider the following simple Python Plugin;
+Consider the following simple Python Plugin, and let us assume that it is stored in a Python source code file called "display_message.py";
 
 	#!/usr/bin/env python
 	
@@ -103,7 +103,7 @@ Consider the following simple Python Plugin;
 	
 	main()
 
-As can be seen from this source code, the Plugin itself is rather simple. It is composed of a single function called "displayMessage" which is registered with
+As can be seen from this source code, the Plugin itself is rather simple. It is composed of a single function called "displayMessage", which is registered with
 GIMP by way of a function which is called "register". The "register" function itself is imported from GIMP by way of the;
 
 	from * import *
