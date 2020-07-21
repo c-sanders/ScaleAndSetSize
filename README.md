@@ -107,6 +107,8 @@ Let us assume that we have this source code stored in a Python source code file 
 
 > "/home/foo/.gimp-2.8/plug-ins/basic_plugin.py";
 
+and that this file's permission bits are set to 755.
+
 As can be seen from this source code, the Plugin itself is rather simple. It is composed of a single function called "displayMessage", which is registered with
 GIMP by way of a function which is called "register". The "register" function itself is imported from GIMP by way of the;
 
