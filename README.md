@@ -75,16 +75,22 @@ Consider the following simple Python Plugin;
 	from gimpfu import register, main, PF_STRING
 	
 	
+	# Define the function which is to be registered with GIMP as a Plugin.
+	
 	def displayMessage(
 	
 	  message
 	) :
-
+	
 		print("Message = %s" % (message))
 	
 	
+	# If GIMP finds this file while it is starting up, it will ask it file to identify itself. This is the
+	# reason for the register function.
+	#
 	# Register the display_message function with GIMP's PDB (Procedure DataBase). If this operation is
 	# successful, then the display_message function should be registered with GIMP as a Plugin.
+	#
 	
 	register(
 		"displayMessage",      # The name of the command.
@@ -103,6 +109,8 @@ Consider the following simple Python Plugin;
 		displayMessage,
 		menu="<Image>/Image/Utilities/")
 	
+	
+	# What exactly does invoking the main function do?
 	
 	main()
 
