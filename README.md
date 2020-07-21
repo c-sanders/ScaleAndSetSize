@@ -83,6 +83,9 @@ Consider the following simple Python Plugin;
 		print("Message = %s" % (message))
 	
 	
+	# Register the display_message function with GIMP's PDB (Procedure DataBase). If this operation is
+	# successful, then the display_message function should be registered with GIMP as a Plugin.
+	
 	register(
 		"displayMessage",      # The name of the command.
 		"Display a message.",  # A brief description of the command.
