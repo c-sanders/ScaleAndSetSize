@@ -164,7 +164,7 @@ do, and because it knows that the "gimp_env_init" function should only be invoke
 Plugin. This is what the author suspects results in the message being displayed.
 
 If we go back to the Python source code file which implements the Plugin, and we edit it so as to comment out the line of source code which invokes the "main" function,
-then we should hopefully prevent GIMP from executing it. If we then try and import the "HelloGIMP" Plugin again - using the same sequence of steps as earlier,
+then we should hopefully prevent GIMP from executing it. If we then try and import the "display_message" Plugin again - using the same sequence of steps as earlier,
 then we should be successful as the following image shows.
 
 ![Test image](/images/Panel_Python-Console_success.png "GIMP Python Console panel")
