@@ -105,7 +105,7 @@ Consider the following simple Python Plugin;
 
 Let us assume that we have this source code stored in a Python source code file which is called;
 
-> "/home/foo/.gimp-2.8/plug-ins/display_message.py";
+> "/home/foo/.gimp-2.8/plug-ins/basic_plugin.py";
 
 As can be seen from this source code, the Plugin itself is rather simple. It is composed of a single function called "displayMessage", which is registered with
 GIMP by way of a function which is called "register". The "register" function itself is imported from GIMP by way of the;
@@ -134,13 +134,13 @@ the Python Script is not shown in this list, then invoke the following command;
 
 This should prepend the directory which contains the Python Script, to the list of directories that Python searches for modules.
 
-For example, in the case of the display_message Plugin, you should execute the following command;
+For example, in the case of the basic_plugin Plugin, you should execute the following command;
 
 	>>> sys.path.insert(0, "/home/foo/.gimp-2.8/plug-ins")
 
 Now you should only have to invoke the following two commands in order to get the Python Script to run from within GIMP.
 
-	>>> import display_message
+	>>> import basic_plugin
 	>>> display_message.displayMessage("Hello, GIMP!")
 
 You should more than likely find that running the import command causes the GIMP Python Console Panel to disappear and that GIMP displays a Panel similar to the
