@@ -112,7 +112,7 @@ Consider the following simple Python Plugin;
 	# Invocation of the main function below, should in turn cause the gimp_env_init function to be
 	# invoked.
 	#
-	# Apart from this, what else exactly does invoking the main function do? Is it responsible for
+	# Apart from this, what else exactly does invoking the main function do? It may be responsible for
 	# initialising the Plugin's arguments?
 	
 	main()
