@@ -109,7 +109,10 @@ Consider the following simple Python Plugin;
 		menu="<Image>/Image/Utilities/")
 	
 	
-	# What exactly does invoking the main function do?
+	# Invocation of the main function below, should in turn cause the gimp_env_init function to be
+	# invoked.
+	#
+	# Apart from this, what exactly does invoking the main function do?
 	
 	main()
 
