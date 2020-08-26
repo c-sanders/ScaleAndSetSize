@@ -26,6 +26,10 @@ from gimpfu import register, main, pdb, gimp, PF_IMAGE, PF_DRAWABLE, PF_INT, PF_
 from ScaleAndSetSizeObject import ScaleAndSetSizeObject
 
 
+SCALING_FACTOR_SMALLEST = 0
+SCALING_FACTOR_LARGEST  = 1
+
+
 def \
 scale_and_set_size_interactive(
 
@@ -33,6 +37,9 @@ scale_and_set_size_interactive(
   drawable,
   horizontalResolution,
   verticalResolution,
+  scalingFactorPreference,
+  horizontalOffset,
+  verticalOffset,
   interpolationMode,
   filename
 ) :
@@ -54,6 +61,9 @@ scale_and_set_size_interactive(
 							  drawable,
 							  horizontalResolution,
 							  verticalResolution,
+		                      scalingFactorPreference,
+		                      horizontalOffset,
+	                          verticalOffset,
 							  interpolationMode,
 							  filename
 							)
@@ -112,38 +122,52 @@ scale_and_set_size_file_noninteractive(
 
 	for filename in listFiles :
 
-		print("%s : ========================================" % (nameFunction))
-		print("%s : Filename = %s" % (nameFunction, filename))
-		print("%s : ========================================" % (nameFunction))
+		try :
 
-		if (not path.isfile(filename)) :
+			print("%s : ========================================" % (nameFunction))
+			print("%s : Filename = %s" % (nameFunction, filename))
+			print("%s : ========================================" % (nameFunction))
 
-			print("%s :    > is NOT a file" % (nameFunction))
+			if (not path.isfile(filename)) :
 
-			continue
+				print("%s :    > is NOT a file" % (nameFunction))
 
-		# Open the image file and get its drawable object.
+				continue
 
-		image    = pdb.gimp_file_load(filename, filename)
-		drawable = pdb.gimp_image_get_active_layer(image)
+			# Open the image file and get its drawable object.
 
-		#
+			image    = pdb.gimp_file_load(filename, filename)
+			drawable = pdb.gimp_image_get_active_layer(image)
+	
+			#
 
-		scale_and_set_size_interactive(
-		  image,
-		  drawable,
-		  horizontalResolution,
-		  verticalResolution,
-		  interpolationMode,
-		  filename
-		)
+			scale_and_set_size_interactive(
+			  image,
+			  drawable,
+			  horizontalResolution,
+			  verticalResolution,
+			  interpolationMode,
+			  filename
+			)
 
-		# Close the image now that we have finished with it, otherwise it will use up memory unnecessarily.
+			# Close the image now that we have finished with it, otherwise it will use up memory unnecessarily.
 
-		pdb.gimp_image_delete(image)
+			pdb.gimp_image_delete(image)
 
-		print("%s : Exit" % (nameFunction))
+			print("%s : Exit" % (nameFunction))
 
+		except :
+
+			print("########################################")
+			print("########################################")
+			print("Something went wrong while attempting to")
+			print("process the previous file;              ")
+			print("")
+			print("  %s" % (filename))
+			print("")
+			print("########################################")
+			print("########################################")
+			
 
 def \
 scale_and_set_size_list_noninteractive(
@@ -235,6 +259,14 @@ register(
 		(PF_DRAWABLE, "drawable",             "Input layer",           None),
 		(PF_INT,      "horizontalResolution", "Horizontal resolution", 1920),
 		(PF_INT,      "verticalResolution",   "Vertical resolution",   1080),
+		(PF_RADIO,    "scalingFactorPreference",  "Scaling factor preference",       0,
+		  (
+			("Use smallest scaling factor", 0),
+			("Use largest scaling factor",  1)
+		  )
+		),
+		(PF_INT,      "horizontalOffset", "Horizontal offset", 0),
+		(PF_INT,      "verticalOffset",   "Vertical offset",   0),
 		# (PF_INT,      "interpolationMode",    "Interpolation mode",    3),
 		(PF_RADIO,    "interpolationMode",     "Inerpolation mode",       3,
 		  (
@@ -244,7 +276,7 @@ register(
 			("Sinc (Lanczos3)", INTERPOLATION_LANCZOS)
 		  )
 		),
-		(PF_FILE,     "filename",             "Save image using a different filename.\nLeave as (None) to save using the\ncurrent filename.",        None)
+		(PF_FILE,     "filename",             "Save image using a different filename.\n\n(Leave this field empty to save image\nusing the current filename.)",        None)
 	],
 	[],
 	scale_and_set_size_interactive,
@@ -265,7 +297,7 @@ register(
 		(PF_INT,    "horizontalResolution", "Horizontal resolution (in pixels)",       1920),
 		(PF_INT,    "verticalResolution",   "Vertical resolution (in pixels)",         1080),
 		(PF_INT,    "interpolationMode",    "Interpolation mode (0,1,2, or 3)",        3),
-		(PF_STRING, "listFiles",            "Filename of a text file which contains the list of image files to operate on. Each entry in the text file should reside on a separate line.)", "")
+		(PF_STRING, "listFiles",            "Filename of a text file which contains the list of image files to operate on. Each entry in the text file should reside on its own separate line.", "")
 	],
 	[],
 	scale_and_set_size_file_noninteractive,

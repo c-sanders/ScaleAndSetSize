@@ -1,25 +1,32 @@
 from gimpfu import pdb, INTERPOLATION_NONE
 from math   import ceil
 
+import os
 
 class ScaleAndSetSizeObject :
 
-	nameClass            = "ScaleAndSetSizeObject"
+	nameClass               = "ScaleAndSetSizeObject"
 
-	image                = None
-	drawable             = None
+	image                   = None
+	drawable                = None
 
-	horizontalResolution = None
-	verticalResolution   = None
+	horizontalResolution    = None
+	verticalResolution      = None
 
-	widthImage_original  = None
-	heightImage_original = None
+	scalingFactorPreference = None
 
-	filename		     = None
+	horizontalOffset        = None
+	verticalOffset          = None
 
-	resizeAmount         = 1.0
+	widthImage_original     = None
+	heightImage_original    = None
 
-	interpolationMode    = INTERPOLATION_NONE
+	filename		        = None
+	filename_file           = None
+
+	resizeAmount            = 1.0
+
+	interpolationMode       = INTERPOLATION_NONE
 
 
 	def __init__(
@@ -29,6 +36,9 @@ class ScaleAndSetSizeObject :
 	  drawable,
 	  horizontalResolution,
 	  verticalResolution,
+	  scalingFactorPreference,
+	  horizontalOffset,
+	  verticalOffset,
 	  interpolationMode,
 	  filename
 	) :
@@ -38,18 +48,38 @@ class ScaleAndSetSizeObject :
 
 		print("%s : Enter" % (nameMethod))
 
-		self.image                = image
-		self.drawable             = drawable
+		print("%s : filename       = %s" % (nameMethod, filename))
+		print("%s : image.filename = %s" % (nameMethod, image.filename))
+		print("%s : image.width    = %s" % (nameMethod, image.width))
+		print("%s : image.height   = %s" % (nameMethod, image.height))
 
-		self.horizontalResolution = horizontalResolution
-		self.verticalResolution   = verticalResolution
+		self.image                   = image
+		self.drawable                = drawable
 
-		self.widthImage_original  = image.width
-		self.heightImage_original = image.height
+		self.horizontalResolution    = horizontalResolution
+		self.verticalResolution      = verticalResolution
 
-		self.interpolationMode    = interpolationMode
+		self.scalingFactorPreference = scalingFactorPreference
 
-		self.filename		      = filename
+		self.horizontalOffset        = horizontalOffset
+		self.verticalOffset          = verticalOffset
+
+		self.widthImage_original     = image.width
+		self.heightImage_original    = image.height
+
+		self.interpolationMode       = interpolationMode
+
+		if (filename == None) :
+
+			self.filename = self.image.filename
+
+		else :
+
+			self.filename = filename
+
+		self.filename_file = (os.path.split(self.filename))[1]
+
+		print("%s : filename(self.filename_file) = %s" % (nameMethod, self.filename_file))
 
 		print("%s : Exit" % (nameMethod))
 
@@ -68,6 +98,8 @@ class ScaleAndSetSizeObject :
 		# 5) Offset the image so as to centre it within the new dimensions.
 
 		# self.displayDiagnostics_pre()
+
+		self.checkSettings()
 
 		self.computeResizingFactor()
 
@@ -156,6 +188,28 @@ class ScaleAndSetSizeObject :
 			print("resizeAmountVertical <= resizeAmountHorizontal")
 			print("x difference = %d" % (widthImage_original  - widthImage))
 			print("y difference = %d" % (heightImage_original - heightImage))
+
+		print("%s : Exit" % (nameMethod))
+
+
+	def checkSettings(self) :
+
+		nameMethod = self.nameClass + "::checkSettings"
+
+
+		print("%s : Enter" % (nameMethod))
+
+		if (self.horizontalOffset < 0) :
+
+			print("%s : Horizontal offset < 0" % (nameMethod))
+
+			self.horizontalOffset = 0
+
+		if (self.verticalOffset < 0) :
+
+			print("%s : Vertical offset < 0" % (nameMethod))
+
+			self.verticalOffset = 0
 
 		print("%s : Exit" % (nameMethod))
 
@@ -311,20 +365,16 @@ class ScaleAndSetSizeObject :
 
 		# Save the image to a file.
 
-		print("%s : About to save the flattened image to file" % (nameMethod))
-
 		# pdb.file_png_save(drawable,filename,raw_filename,interlace,compression,bkgd,gama,offs,phys,time)
 
-		if (self.filename == None) :
-
-			self.filename = self.image.filename
+		print("%s : About to save the flattened image to file : %s" % (nameMethod, self.filename))
 
 		pdb.gimp_file_save(
 
 		  self.image,
 		  drawable,
 		  self.filename,
-		  self.filename
+		  self.filename_file
 		)
 
 		# Don't close or delete the image, as this object didn't open it.
