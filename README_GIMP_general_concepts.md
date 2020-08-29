@@ -2,8 +2,8 @@ GIMP general concepts.
 ======================
 
 
-GIMP layers, drawables, and channels.
--------------------------------------
+GIMP drawables, layers, channels, and masks.
+--------------------------------------------
 
 Further information about these GIMP concepts can be found [here](https://docs.gimp.org/2.10/en/gimp-image-combining.html).
 
